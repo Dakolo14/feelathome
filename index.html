@@ -1012,6 +1012,197 @@
         }
       }
 
+      /* Floor Plan Section CSS */
+      .floor-plan-section {
+        margin: 3rem 0;
+      }
+      .floor-plan-layout {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        flex-wrap: wrap;
+        background: #fff;
+        border: 1px solid #f0f0f0;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      }
+      .floor-plan-map-wrap {
+        flex: 1 1 450px;
+        background: transparent;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .interactive-svg-map {
+        max-height: 550px;
+        width: 100%;
+        height: auto;
+      }
+      .room-guide {
+        flex: 1 1 350px;
+        background: transparent;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .room-guide-header {
+        margin-bottom: 2rem;
+      }
+      .room-guide-header h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+      }
+      .room-guide-header p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.4;
+      }
+      .room-guide__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 24px;
+        row-gap: 16px;
+      }
+      .room-guide__row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 0.5rem;
+        text-decoration: none;
+        color: #555;
+        border-radius: 8px;
+        transition: color 0.3s, background 0.3s;
+      }
+      .room-guide__row:hover {
+        background: transparent;
+        color: #E50051;
+      }
+      .room-guide__row:hover .room-guide__code {
+        color: #E50051;
+      }
+      .room-guide__code {
+        font-weight: 500;
+        color: #bbb;
+        width: 36px;
+        font-variant-numeric: tabular-nums;
+        transition: color 0.2s ease;
+        margin-top: 2px;
+      }
+      .room-guide__text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .room-guide__name {
+        font-weight: 500;
+        font-size: 1rem;
+        color: #333;
+      }
+      .room-guide__desc {
+        font-size: 0.8rem;
+        color: #777;
+        line-height: 1.3;
+      }
+      
+      .interactive-svg-map a {
+        cursor: pointer;
+        transition: opacity 0.3s;
+      }
+      .interactive-svg-map a:hover rect {
+        fill-opacity: 0.6;
+      }
+      
+      /* Pure CSS Modals */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal:target {
+        display: flex;
+      }
+      .modal__overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        cursor: default;
+      }
+      .modal__dialog {
+        position: relative;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 500px;
+        width: 90%;
+        z-index: 1001;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+      .modal__close {
+        position: absolute;
+        top: 1rem; right: 1.5rem;
+        font-size: 2rem;
+        text-decoration: none;
+        color: #999;
+        line-height: 1;
+      }
+      .modal__close:hover {
+        color: #333;
+      }
+      .modal__title {
+        margin-top: 0;
+        font-size: 1.5rem;
+        color: #111;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+      .modal__image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+      .modal__desc {
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+      .modal__cta {
+        display: inline-block;
+        background: #E50051;
+        color: #fff;
+        padding: 0.85rem 2rem;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+      .modal__cta:hover {
+        background: #cc0048;
+      }
+      
+      @media (max-width: 768px) {
+        .floor-plan-layout {
+          padding: 1.5rem 1rem;
+          gap: 2rem;
+        }
+        .room-guide__grid {
+          grid-template-columns: 1fr;
+        }
+        .section-content-body {
+          padding: 24px 16px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1050,68 +1241,417 @@
               <!-- 1. Furniture & Seating -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeFurniture%26Seating&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">FURNITURE &amp; SEATING</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">FURNITURE &amp; SEATING</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">FURNITURE HUB</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">FURNITURE HUB</div>
                 </a>
               </div>
 
               <!-- 2. Bedding & Bath -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeBedding%26Bath&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">BEDDING &amp; BATH</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">BEDDING &amp; BATH</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">COZY CORNER</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">COZY CORNER</div>
                 </a>
               </div>
 
               <!-- 3. Kitchen & Dining -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeKitchen%26Dining&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">KITCHEN &amp; DINING</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">KITCHEN &amp; DINING</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">CHOW HOUSE</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">CHOW HOUSE</div>
                 </a>
               </div>
 
               <!-- 4. Appliances -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeAppliances&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">APPLIANCES</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">APPLIANCES</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">APPLIANCE STORE</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">APPLIANCE STORE</div>
                 </a>
               </div>
 
               <!-- 5. Electronics & Smart Home -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeElectronics%26SmartHome&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">ELECTRONICS &amp; SMART HOME</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">ELECTRONICS &amp; SMART HOME</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">SMART HOME</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">SMART HOME</div>
                 </a>
               </div>
 
               <!-- 6. Food & Groceries -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeGroceries&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">FOOD &amp; GROCERIES</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">FOOD &amp; GROCERIES</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">THE PANTRY</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">THE PANTRY</div>
                 </a>
               </div>
 
               <!-- 7. Fashion & Lifestyle -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeFashion%26Lifestyle&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">FASHION &amp; LIFESTYLE</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">FASHION &amp; LIFESTYLE</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">DRIP CENTER</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">DRIP CENTER</div>
                 </a>
               </div>
 
               <!-- 8. Decor & Accessories (last) -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeDecor%26Accessories&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">DECOR &amp; ACCESSORIES</span><span class="ph-dims">400 x 400px</span></div>
-                  <div class="bento-card-title-under">DECOR &amp; ACCESSORIES</div>
+                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">HOME DECOR</span><span class="ph-dims">400 x 400px</span></div>
+                  <div class="bento-card-title-under">HOME DECOR</div>
                 </a>
               </div>
             </div>
+          </div>
+        </div>
       </section>
+
+      <!-- ═══════════════════════════════════════════
+           FLOOR PLAN — Interactive SVG & Pure CSS Modals
+      ═══════════════════════════════════════════ -->
+      <section class="section-block floor-plan-section" id="floor-plan">
+        <div class="container">
+          <div class="best-sellers-header" style="justify-content: center;">
+            <div class="best-sellers-title" style="text-align: center;">CHOOSE YOUR ROOM DEALS</div>
+          </div>
+          
+          <div class="floor-plan-layout">
+            <!-- Left: Interactive SVG Map -->
+            <div class="floor-plan-map-wrap">
+              <svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" class="interactive-svg-map" style="width: 100%; height: 100%; display: block;">
+                <!-- Base Canvas Background -->
+                <rect width="100%" height="100%" fill="#ffffff"/>
+                
+                <!-- BEDROOM (BED) -->
+                <a href="#modal-bed" title="Bedroom">
+                  <rect x="40" y="40" width="340" height="240" fill="#f3e8ff" stroke="#334155" stroke-width="4"/>
+                  <text x="210" y="150" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#7e22ce" text-anchor="middle">BED</text>
+                  <text x="210" y="185" font-family="Arial, sans-serif" font-size="18" fill="#581c87" text-anchor="middle">BEDROOM</text>
+                </a>
+
+                <!-- BATHROOM (BATH) -->
+                <a href="#modal-bath" title="Bathroom">
+                  <rect x="380" y="40" width="200" height="180" fill="#e0f2fe" stroke="#334155" stroke-width="4"/>
+                  <text x="480" y="120" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0284c7" text-anchor="middle">BATH</text>
+                  <text x="480" y="150" font-family="Arial, sans-serif" font-size="14" fill="#0369a1" text-anchor="middle">BATHROOM</text>
+                </a>
+
+                <!-- HOME OFFICE (OFF) -->
+                <a href="#modal-off" title="Home Office">
+                  <rect x="580" y="40" width="180" height="180" fill="#fef08a" stroke="#334155" stroke-width="4"/>
+                  <text x="670" y="120" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ca8a04" text-anchor="middle">OFF</text>
+                  <text x="670" y="150" font-family="Arial, sans-serif" font-size="14" fill="#a16207" text-anchor="middle">HOME OFFICE</text>
+                </a>
+
+                <!-- LIVING ROOM (LIV) -->
+                <a href="#modal-liv" title="Living Room">
+                  <rect x="40" y="280" width="380" height="300" fill="#dbeafe" stroke="#334155" stroke-width="4"/>
+                  <text x="230" y="420" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1d4ed8" text-anchor="middle">LIV</text>
+                  <text x="230" y="455" font-family="Arial, sans-serif" font-size="18" fill="#1e3a8a" text-anchor="middle">LIVING ROOM</text>
+                </a>
+
+                <!-- DINING ROOM (DIN) -->
+                <a href="#modal-din" title="Dining Room">
+                  <rect x="420" y="220" width="340" height="180" fill="#ffedd5" stroke="#334155" stroke-width="4"/>
+                  <text x="590" y="300" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#c2410c" text-anchor="middle">DIN</text>
+                  <text x="590" y="335" font-family="Arial, sans-serif" font-size="18" fill="#9a3412" text-anchor="middle">DINING ROOM</text>
+                </a>
+
+                <!-- KITCHEN (KIT) -->
+                <a href="#modal-kit" title="Kitchen">
+                  <rect x="420" y="400" width="340" height="220" fill="#dcfce7" stroke="#334155" stroke-width="4"/>
+                  <text x="590" y="500" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#15803d" text-anchor="middle">KIT</text>
+                  <text x="590" y="535" font-family="Arial, sans-serif" font-size="18" fill="#166534" text-anchor="middle">KITCHEN</text>
+                </a>
+
+                <!-- LAUNDRY ROOM (LAU) -->
+                <a href="#modal-lau" title="Laundry Room">
+                  <rect x="40" y="580" width="240" height="160" fill="#fce7f3" stroke="#334155" stroke-width="4"/>
+                  <text x="160" y="650" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#be185d" text-anchor="middle">LAU</text>
+                  <text x="160" y="680" font-family="Arial, sans-serif" font-size="14" fill="#9d174d" text-anchor="middle">LAUNDRY</text>
+                </a>
+
+                <!-- GARAGE (GAR) -->
+                <a href="#modal-gar" title="Garage">
+                  <rect x="40" y="740" width="340" height="220" fill="#e2e8f0" stroke="#334155" stroke-width="4"/>
+                  <text x="210" y="810" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#475569" text-anchor="middle">GAR</text>
+                  <text x="210" y="845" font-family="Arial, sans-serif" font-size="18" fill="#334155" text-anchor="middle">GARAGE</text>
+                  <!-- Architectural Car Symbol -->
+                  <g transform="translate(122, 865) scale(0.8)" stroke="#64748b" stroke-width="2.5" fill="none" stroke-linejoin="round">
+                    <!-- Main Body -->
+                    <path d="M30 20 C 50 5, 170 5, 190 20 L 195 40 L 195 60 L 190 80 C 170 95, 50 95, 30 80 L 25 60 L 25 40 Z" />
+                    <!-- Front Windshield -->
+                    <path d="M 55 15 C 75 12, 75 88, 55 85 C 45 50, 45 50, 55 15 Z" />
+                    <!-- Rear Windshield -->
+                    <path d="M 165 15 C 145 12, 145 88, 165 85 C 175 50, 175 50, 165 15 Z" />
+                    <!-- Roof -->
+                    <rect x="65" y="14" width="90" height="72" rx="15" />
+                    <!-- Side mirrors -->
+                    <rect x="55" y="6" width="12" height="8" rx="3" />
+                    <rect x="55" y="86" width="12" height="8" rx="3" />
+                    <!-- Subtle detail lines -->
+                    <line x1="25" y1="50" x2="35" y2="50" />
+                    <line x1="195" y1="50" x2="185" y2="50" />
+                  </g>
+                </a>
+
+                <!-- PATIO & OUTDOOR (PAT) -->
+                <a href="#modal-pat" title="Patio & Outdoor">
+                  <rect x="380" y="620" width="380" height="340" fill="#ecfccb" stroke="#334155" stroke-width="4"/>
+                  <text x="570" y="780" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#4d7c0f" text-anchor="middle">PAT</text>
+                  <text x="570" y="815" font-family="Arial, sans-serif" font-size="18" fill="#3f6212" text-anchor="middle">PATIO &amp; OUTDOOR</text>
+                </a>
+
+                <!-- Outer Structural Walls -->
+                <rect x="40" y="40" width="720" height="920" fill="none" stroke="#0f172a" stroke-width="8"/>
+
+                <!-- DOORS (Gaps, Lines, Arcs) -->
+                <g id="doors">
+                  <!-- Door to BED from LIV -->
+                  <line x1="160" y1="280" x2="200" y2="280" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="160" y1="280" x2="160" y2="240" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 160 240 A 40 40 0 0 1 200 280" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+                  <!-- Door to BATH from DIN -->
+                  <line x1="450" y1="220" x2="490" y2="220" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="450" y1="220" x2="450" y2="180" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 450 180 A 40 40 0 0 1 490 220" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+                  <!-- Door to OFF from DIN -->
+                  <line x1="600" y1="220" x2="640" y2="220" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="600" y1="220" x2="600" y2="180" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 600 180 A 40 40 0 0 1 640 220" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+                  <!-- Door between LIV and DIN -->
+                  <line x1="420" y1="320" x2="420" y2="360" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="420" y1="320" x2="460" y2="320" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 460 320 A 40 40 0 0 1 420 360" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+                  <!-- Door between DIN and KIT -->
+                  <line x1="560" y1="400" x2="600" y2="400" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="560" y1="400" x2="560" y2="440" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 560 440 A 40 40 0 0 0 600 400" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+                  <!-- Door between LIV and LAU -->
+                  <line x1="160" y1="580" x2="200" y2="580" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="160" y1="580" x2="160" y2="620" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 160 620 A 40 40 0 0 0 200 580" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+                  <!-- Door between LAU and GAR -->
+                  <line x1="160" y1="740" x2="200" y2="740" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="160" y1="740" x2="160" y2="780" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 160 780 A 40 40 0 0 0 200 740" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+                  <!-- Door to PATIO from KIT -->
+                  <line x1="560" y1="620" x2="600" y2="620" stroke="#ffffff" stroke-width="6"/>
+                  <line x1="560" y1="620" x2="560" y2="660" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M 560 660 A 40 40 0 0 0 600 620" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+
+
+
+                  <!-- Garage Main Door -->
+                  <line x1="130" y1="960" x2="290" y2="960" stroke="#ffffff" stroke-width="12"/>
+                  <line x1="130" y1="960" x2="290" y2="960" stroke="#64748b" stroke-width="2" stroke-dasharray="12,12"/>
+                </g>
+              </svg>
+            </div>
+            
+            <!-- Right: Sidebar Guide -->
+            <aside class="room-guide">
+              <div class="room-guide-header">
+                <h3>What’s in each room</h3>
+                <p>Tap a room on the plan, or jump straight in from here.</p>
+              </div>
+              <div class="room-guide__grid">
+                <a href="#modal-bed" class="room-guide__row">
+                  <span class="room-guide__code">BED</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Bedroom</span>
+                    <span class="room-guide__desc">Mattresses, wardrobes, ACs &amp; fans</span>
+                  </div>
+                </a>
+                <a href="#modal-bath" class="room-guide__row">
+                  <span class="room-guide__code">BATH</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Bathroom</span>
+                    <span class="room-guide__desc">Water heaters, accessories</span>
+                  </div>
+                </a>
+                <a href="#modal-off" class="room-guide__row">
+                  <span class="room-guide__code">OFF</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Home Office</span>
+                    <span class="room-guide__desc">Laptops, printers, office furniture</span>
+                  </div>
+                </a>
+                <a href="#modal-liv" class="room-guide__row">
+                  <span class="room-guide__code">LIV</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Living Room</span>
+                    <span class="room-guide__desc">Smart TVs, sound, ACs, sofas</span>
+                  </div>
+                </a>
+                <a href="#modal-kit" class="room-guide__row">
+                  <span class="room-guide__code">KIT</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Kitchen</span>
+                    <span class="room-guide__desc">Microwaves, cookers, fridges</span>
+                  </div>
+                </a>
+                <a href="#modal-din" class="room-guide__row">
+                  <span class="room-guide__code">DIN</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Dining Room</span>
+                    <span class="room-guide__desc">Dining sets, dispensers</span>
+                  </div>
+                </a>
+                <a href="#modal-gar" class="room-guide__row">
+                  <span class="room-guide__code">GAR</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Garage</span>
+                    <span class="room-guide__desc">Generators, power tools, storage</span>
+                  </div>
+                </a>
+                <a href="#modal-lau" class="room-guide__row">
+                  <span class="room-guide__code">LAU</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Laundry Room</span>
+                    <span class="room-guide__desc">Washers, dryers, irons</span>
+                  </div>
+                </a>
+                <a href="#modal-pat" class="room-guide__row">
+                  <span class="room-guide__code">PAT</span>
+                  <div class="room-guide__text">
+                    <span class="room-guide__name">Patio &amp; Outdoor</span>
+                    <span class="room-guide__desc">Outdoor furniture, grills, inverters</span>
+                  </div>
+                </a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════════
+           MODALS — Pure CSS
+      ═══════════════════════════════════════════ -->
+      <div class="modal" id="modal-bed">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-bed">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-bed">Bedroom Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Bedroom Image</div>
+          </div>
+          <p class="modal__desc">Shop premium mattresses, spacious wardrobes, ACs &amp; fans for maximum comfort.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeBedroom" class="modal__cta">Shop Bedroom</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-bath">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-bath">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-bath">Bathroom Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Bathroom Image</div>
+          </div>
+          <p class="modal__desc">Upgrade with efficient water heaters and elegant bathroom accessories.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeBathroom" class="modal__cta">Shop Bathroom</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-off">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-off">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-off">Home Office Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Home Office Image</div>
+          </div>
+          <p class="modal__desc">Work smartly with top-tier laptops, printers, and ergonomic office furniture.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeOffice" class="modal__cta">Shop Home Office</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-liv">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-liv">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-liv">Living Room Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Living Room Image</div>
+          </div>
+          <p class="modal__desc">Transform your living space with Smart TVs, soundbars, ACs, and comfortable sofas.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeLivingRoom" class="modal__cta">Shop Living Room</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-kit">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-kit">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-kit">Kitchen Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Kitchen Image</div>
+          </div>
+          <p class="modal__desc">Equip your kitchen with high-quality microwaves, cookers, and modern refrigerators.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeKitchen" class="modal__cta">Shop Kitchen</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-din">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-din">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-din">Dining Room Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Dining Room Image</div>
+          </div>
+          <p class="modal__desc">Host memorable dinners with beautiful dining sets and handy water dispensers.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeDining" class="modal__cta">Shop Dining Room</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-gar">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-gar">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-gar">Garage Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Garage Image</div>
+          </div>
+          <p class="modal__desc">Stay powered and organized with reliable generators, power tools, and storage units.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeGarage" class="modal__cta">Shop Garage</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-lau">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-lau">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-lau">Laundry Room Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Laundry Image</div>
+          </div>
+          <p class="modal__desc">Make laundry effortless with top-rated washing machines, dryers, and irons.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomeLaundry" class="modal__cta">Shop Laundry</a>
+        </div>
+      </div>
+
+      <div class="modal" id="modal-pat">
+        <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
+        <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-pat">
+          <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
+          <h3 class="modal__title" id="modal-title-pat">Patio &amp; Outdoor Deals</h3>
+          <div class="modal__image">
+            <div class="img-placeholder" style="aspect-ratio:16/9; background:#eee; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; color:#999;">Patio Image</div>
+          </div>
+          <p class="modal__desc">Enjoy the outdoors with stylish outdoor furniture, grills, and powerful inverters.</p>
+          <a href="https://www.konga.com/search?search=FeelAtHomePatio" class="modal__cta">Shop Patio &amp; Outdoor</a>
+        </div>
+      </div>
+
 
 
       <!-- Flash Deals Section (5 Products per row at first glance) -->
