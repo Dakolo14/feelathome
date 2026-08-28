@@ -1225,7 +1225,10 @@
     <main class="container">
       <!-- Main Hero Banner -->
       <div class="banner-placeholder-container">
-        <div class="img-placeholder kv-ph"><span class="ph-label">Main KV</span><span class="ph-dims">1400 x 400px (Desktop) / 633 x 400px (Mobile)</span></div>
+        <picture>
+          <source media="(max-width: 768px)" srcset="./mobilekv.png">
+          <img src="./desktopkv.png" class="desktop-kv" alt="Main KV" style="width: 100%; border-radius: 12px; height: auto;">
+        </picture>
         
       </div>
 
@@ -1241,7 +1244,7 @@
               <!-- 1. Furniture & Seating -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeFurniture%26Seating&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">FURNITURE HUB</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./furniturehub.png" class="bento-card-img" alt="FURNITURE HUB" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">FURNITURE HUB</div>
                 </a>
               </div>
@@ -1249,7 +1252,7 @@
               <!-- 2. Bedding & Bath -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeBedding%26Bath&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">COZY CORNER</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./cozycenter.png" class="bento-card-img" alt="COZY CORNER" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">COZY CORNER</div>
                 </a>
               </div>
@@ -1257,7 +1260,7 @@
               <!-- 3. Kitchen & Dining -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeKitchen%26Dining&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">CHOW HOUSE</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./chowhouse.gif" class="bento-card-img" alt="CHOW HOUSE" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">CHOW HOUSE</div>
                 </a>
               </div>
@@ -1265,7 +1268,7 @@
               <!-- 4. Appliances -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeAppliances&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">APPLIANCE STORE</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./appliancestore.png" class="bento-card-img" alt="APPLIANCE STORE" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">APPLIANCE STORE</div>
                 </a>
               </div>
@@ -1273,7 +1276,7 @@
               <!-- 5. Electronics & Smart Home -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeElectronics%26SmartHome&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">SMART HOME</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./smarthome.gif" class="bento-card-img" alt="SMART HOME" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">SMART HOME</div>
                 </a>
               </div>
@@ -1281,7 +1284,7 @@
               <!-- 6. Food & Groceries -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeGroceries&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">THE PANTRY</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./thepantry.png" class="bento-card-img" alt="THE PANTRY" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">THE PANTRY</div>
                 </a>
               </div>
@@ -1289,7 +1292,7 @@
               <!-- 7. Fashion & Lifestyle -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeFashion%26Lifestyle&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">DRIP CENTER</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./dripcenter.gif" class="bento-card-img" alt="DRIP CENTER" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">DRIP CENTER</div>
                 </a>
               </div>
@@ -1297,7 +1300,7 @@
               <!-- 8. Decor & Accessories (last) -->
               <div class="bento-item-wrapper">
                 <a href="https://www.konga.com/search?q=FeelAtHomeDecor%26Accessories&m_r=true" style="text-decoration: none; color: inherit;">
-                  <div class="img-placeholder bento-card-img-ph"><span class="ph-label">HOME DECOR</span><span class="ph-dims">400 x 400px</span></div>
+                  <img src="./homedecor.png" class="bento-card-img" alt="HOME DECOR" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">HOME DECOR</div>
                 </a>
               </div>
@@ -1679,12 +1682,12 @@
           <div class="dual-banners-grid">
             <div class="promo-banner-card">
               <a href="https://www.konga.com/search?q=FeelAtHomeStorage%26Organisation&m_r=true">
-                <div class="img-placeholder banner-ph"><span class="ph-label">Home Storage &amp; Organisation</span><span class="ph-dims">1400 x 700px</span></div>
+                <img src="./home-storage.png" alt="Home Storage & Organisation" style="width: 100%; border-radius: 12px; height: auto;" />
               </a>
             </div>
             <div class="promo-banner-card">
               <a href="https://www.konga.com/search?q=FeelAtHomeBaby%26KidsRoom&m_r=true">
-                <div class="img-placeholder banner-ph"><span class="ph-label">Baby &amp; Kids Room Essentials</span><span class="ph-dims">1400 x 700px</span></div>
+                <img src="./baby-kids-room.png" alt="Baby & Kids Room Essentials" style="width: 100%; border-radius: 12px; height: auto;" />
               </a>
             </div>
           </div>
@@ -1752,12 +1755,12 @@
           <div class="dual-banners-grid">
             <div class="promo-banner-card">
               <a href="https://www.konga.com/merchant/orca-mall">
-                <div class="img-placeholder banner-ph"><span class="ph-label">Shop LG</span><span class="ph-dims">1400 x 700px</span></div>
+                <img src="./lgstore.png" alt="Shop LG" style="width: 100%; border-radius: 12px; height: auto;" />
               </a>
             </div>
             <div class="promo-banner-card">
               <a href="https://www.konga.com/merchant/samsung">
-                <div class="img-placeholder banner-ph"><span class="ph-label">Shop Samsung</span><span class="ph-dims">1400 x 700px</span></div>
+                <img src="./samsungstore.png" alt="Shop Samsung" style="width: 100%; border-radius: 12px; height: auto;" />
               </a>
             </div>
           </div>
@@ -1807,10 +1810,10 @@
       <section class="rate-app-section" id="rate-us" style="margin-top: 32px; margin-bottom: 32px;">
         <div class="container">
           <a href="https://linktr.ee/dakolo14" style="display: block; width: 100%; text-decoration: none; border-radius: 12px; overflow: hidden; border: 1px solid #eeeeee; transition: box-shadow 0.2s ease;">
-            <div class="img-placeholder rate-us-ph" style="aspect-ratio: 1400/200; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #fafafa; border: 2px dashed #cccccc; border-radius: 12px;">
-              <span class="ph-label" style="font-size: 1.25rem; font-weight: 600; color: #333333; margin-bottom: 4px;">Rate Us Banner</span>
-              <span class="ph-dims" style="font-size: 0.85rem; color: #888888;">1400 x 200px (Desktop) / 633 x 200px (Mobile)</span>
-            </div>
+            <picture>
+              <source media="(max-width: 768px)" srcset="./rateusmobile.png">
+              <img src="./rateusdesktop.png" alt="Rate Us" style="width: 100%; border-radius: 8px; height: auto;">
+            </picture>
           </a>
         </div>
       </section>
