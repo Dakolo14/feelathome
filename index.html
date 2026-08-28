@@ -1131,7 +1131,7 @@
         align-items: center;
         justify-content: center;
       }
-      .modal:target {
+      .modal.active {
         display: flex;
       }
       .modal__overlay {
@@ -1883,6 +1883,38 @@
           }
         });
       }
+
+      // --- Custom Modal Logic to Prevent Page Jump ---
+      const modalLinks = document.querySelectorAll('a[href^="#modal-"]');
+      const modals = document.querySelectorAll('.modal');
+      const closeButtons = document.querySelectorAll('.modal__close');
+      const overlays = document.querySelectorAll('.modal__overlay');
+
+      // Open modals without jumping
+      modalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetModal = document.getElementById(targetId);
+          if (targetModal) {
+            targetModal.classList.add('active');
+          }
+        });
+      });
+
+      // Close modals without jumping
+      const closeModal = (e) => {
+        if (e) e.preventDefault();
+        modals.forEach(modal => modal.classList.remove('active'));
+      };
+
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', closeModal);
+      });
+
+      overlays.forEach(overlay => {
+        overlay.addEventListener('click', closeModal);
+      });
     </script>
   </body>
 </html>
