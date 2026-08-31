@@ -48,14 +48,14 @@
         padding: 12px;
       }
       .img-placeholder .ph-label {
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 13px;
         font-weight: 600;
         color: #555;
         display: block;
       }
       .img-placeholder .ph-dims {
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 11px;
         color: #999;
         display: block;
@@ -1122,16 +1122,34 @@
       }
       
       /* Pure CSS Modals */
+      .interactive-floor-plan {
+        position: relative;
+      }
+      .modal-target-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+      }
       .modal {
         display: none;
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
         background: rgba(0,0,0,0.6);
         z-index: 1000;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
+        padding-top: 200px;
+        overflow-y: auto;
       }
-      .modal.active {
+      @media (max-width: 1024px) {
+        .modal { padding-top: 124px; }
+      }
+      @media (max-width: 768px) {
+        .modal { padding-top: 100px; }
+      }
+      .modal-target-wrapper:target .modal {
         display: flex;
       }
       .modal__overlay {
@@ -1144,10 +1162,10 @@
         background: #fff;
         padding: 2rem;
         border-radius: 12px;
-        max-width: 500px;
         width: 90%;
+        max-width: 500px;
         z-index: 1001;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
       }
       .modal__close {
         position: absolute;
@@ -1215,11 +1233,11 @@
           <img src="https://www-konga-com-res.cloudinary.com/image/upload/f_auto,q_auto/v1787920853/landingPages/2026%20Marketing/FeetAtHome08/feelathomelogo.png" alt="Feel At Home Logo" style="height: 75px; width: auto; display: block;" />
         </a>
         <ul class="nav-items">
-          <li><a href="https://www.konga.com/search?q=FeelAtHomeFurniture%26Decor&m_r=true">Furniture &amp; Decor</a></li>
+          <li><a href="https://www.konga.com/search?q=FeelAtHomeFurnitureHub&m_r=true">Furniture &amp; Decor</a></li>
           <li><a href="https://www.konga.com/search?q=FeelAtHomeKitchen%26Dining&m_r=true">Kitchen &amp; Dining</a></li>
           <li><a href="https://www.konga.com/search?q=FeelAtHomeBedding%26Bath&m_r=true">Bedding &amp; Bath</a></li>
           <li><a href="https://www.konga.com/search?q=FeelAtHomeElectronics%26SmartHome&m_r=true">Electronics</a></li>
-          <li><a href="https://www.konga.com/search?q=FeelAtHomeFashion%26Lifestyle&m_r=true">Fashion &amp; Lifestyle</a></li>
+          <li><a href="https://www.konga.com/search?q=FeelAtHomeDripCorner&m_r=true">Fashion &amp; Lifestyle</a></li>
         </ul>
       </div>
     </header>
@@ -1245,7 +1263,7 @@
             <div class="category-bento-grid">
               <!-- 1. Furniture & Seating -->
               <div class="bento-item-wrapper">
-                <a href="https://www.konga.com/search?q=FeelAtHomeFurniture%26Seating&m_r=true" style="text-decoration: none; color: inherit;">
+                <a href="https://www.konga.com/search?q=FeelAtHomeFurnitureHub&m_r=true" style="text-decoration: none; color: inherit;">
                   <img src="https://www-konga-com-res.cloudinary.com/image/upload/f_auto,q_auto/v1787920849/landingPages/2026%20Marketing/FeetAtHome08/furniturehub.png" class="bento-card-img" alt="FURNITURE HUB" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">FURNITURE HUB</div>
                 </a>
@@ -1285,7 +1303,7 @@
 
               <!-- 6. Food & Groceries -->
               <div class="bento-item-wrapper">
-                <a href="https://www.konga.com/search?q=FeelAtHomeGroceries&m_r=true" style="text-decoration: none; color: inherit;">
+                <a href="https://www.konga.com/search?q=FeelAtHomePantry&m_r=true" style="text-decoration: none; color: inherit;">
                   <img src="https://www-konga-com-res.cloudinary.com/image/upload/f_auto,q_auto/v1787920852/landingPages/2026%20Marketing/FeetAtHome08/thepantry.png" class="bento-card-img" alt="THE PANTRY" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">THE PANTRY</div>
                 </a>
@@ -1293,7 +1311,7 @@
 
               <!-- 7. Fashion & Lifestyle -->
               <div class="bento-item-wrapper">
-                <a href="https://www.konga.com/search?q=FeelAtHomeFashion%26Lifestyle&m_r=true" style="text-decoration: none; color: inherit;">
+                <a href="https://www.konga.com/search?q=FeelAtHomeDripCorner&m_r=true" style="text-decoration: none; color: inherit;">
                   <img src="https://www-konga-com-res.cloudinary.com/image/upload/f_auto,q_auto/v1787920851/landingPages/2026%20Marketing/FeetAtHome08/dripcenter.gif" class="bento-card-img" alt="DRIP CENTER" style="width: 100%; aspect-ratio: 1/1; border-radius: 12px; object-fit: cover;" />
                   <div class="bento-card-title-under">DRIP CENTER</div>
                 </a>
@@ -1330,57 +1348,57 @@
                 <!-- BEDROOM (BED) -->
                 <a href="#modal-bed" title="Bedroom">
                   <rect x="40" y="40" width="340" height="240" fill="#f3e8ff" stroke="#334155" stroke-width="4"/>
-                  <text x="210" y="150" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#7e22ce" text-anchor="middle">BED</text>
-                  <text x="210" y="185" font-family="Arial, sans-serif" font-size="18" fill="#581c87" text-anchor="middle">BEDROOM</text>
+                  <text x="210" y="150" font-family="Poppins, sans-serif" font-size="28" font-weight="bold" fill="#7e22ce" text-anchor="middle">BED</text>
+                  <text x="210" y="185" font-family="Poppins, sans-serif" font-size="18" fill="#581c87" text-anchor="middle">BEDROOM</text>
                 </a>
 
                 <!-- BATHROOM (BATH) -->
                 <a href="#modal-bath" title="Bathroom">
                   <rect x="380" y="40" width="200" height="180" fill="#e0f2fe" stroke="#334155" stroke-width="4"/>
-                  <text x="480" y="120" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0284c7" text-anchor="middle">BATH</text>
-                  <text x="480" y="150" font-family="Arial, sans-serif" font-size="14" fill="#0369a1" text-anchor="middle">BATHROOM</text>
+                  <text x="480" y="120" font-family="Poppins, sans-serif" font-size="24" font-weight="bold" fill="#0284c7" text-anchor="middle">BATH</text>
+                  <text x="480" y="150" font-family="Poppins, sans-serif" font-size="14" fill="#0369a1" text-anchor="middle">BATHROOM</text>
                 </a>
 
                 <!-- HOME OFFICE (OFF) -->
                 <a href="#modal-off" title="Home Office">
                   <rect x="580" y="40" width="180" height="180" fill="#fef08a" stroke="#334155" stroke-width="4"/>
-                  <text x="670" y="120" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ca8a04" text-anchor="middle">OFF</text>
-                  <text x="670" y="150" font-family="Arial, sans-serif" font-size="14" fill="#a16207" text-anchor="middle">HOME OFFICE</text>
+                  <text x="670" y="120" font-family="Poppins, sans-serif" font-size="24" font-weight="bold" fill="#ca8a04" text-anchor="middle">OFF</text>
+                  <text x="670" y="150" font-family="Poppins, sans-serif" font-size="14" fill="#a16207" text-anchor="middle">HOME OFFICE</text>
                 </a>
 
                 <!-- LIVING ROOM (LIV) -->
                 <a href="#modal-liv" title="Living Room">
                   <rect x="40" y="280" width="380" height="300" fill="#dbeafe" stroke="#334155" stroke-width="4"/>
-                  <text x="230" y="420" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1d4ed8" text-anchor="middle">LIV</text>
-                  <text x="230" y="455" font-family="Arial, sans-serif" font-size="18" fill="#1e3a8a" text-anchor="middle">LIVING ROOM</text>
+                  <text x="230" y="420" font-family="Poppins, sans-serif" font-size="28" font-weight="bold" fill="#1d4ed8" text-anchor="middle">LIV</text>
+                  <text x="230" y="455" font-family="Poppins, sans-serif" font-size="18" fill="#1e3a8a" text-anchor="middle">LIVING ROOM</text>
                 </a>
 
                 <!-- DINING ROOM (DIN) -->
                 <a href="#modal-din" title="Dining Room">
                   <rect x="420" y="220" width="340" height="180" fill="#ffedd5" stroke="#334155" stroke-width="4"/>
-                  <text x="590" y="300" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#c2410c" text-anchor="middle">DIN</text>
-                  <text x="590" y="335" font-family="Arial, sans-serif" font-size="18" fill="#9a3412" text-anchor="middle">DINING ROOM</text>
+                  <text x="590" y="300" font-family="Poppins, sans-serif" font-size="28" font-weight="bold" fill="#c2410c" text-anchor="middle">DIN</text>
+                  <text x="590" y="335" font-family="Poppins, sans-serif" font-size="18" fill="#9a3412" text-anchor="middle">DINING ROOM</text>
                 </a>
 
                 <!-- KITCHEN (KIT) -->
                 <a href="#modal-kit" title="Kitchen">
                   <rect x="420" y="400" width="340" height="220" fill="#dcfce7" stroke="#334155" stroke-width="4"/>
-                  <text x="590" y="500" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#15803d" text-anchor="middle">KIT</text>
-                  <text x="590" y="535" font-family="Arial, sans-serif" font-size="18" fill="#166534" text-anchor="middle">KITCHEN</text>
+                  <text x="590" y="500" font-family="Poppins, sans-serif" font-size="28" font-weight="bold" fill="#15803d" text-anchor="middle">KIT</text>
+                  <text x="590" y="535" font-family="Poppins, sans-serif" font-size="18" fill="#166534" text-anchor="middle">KITCHEN</text>
                 </a>
 
                 <!-- LAUNDRY ROOM (LAU) -->
                 <a href="#modal-lau" title="Laundry Room">
                   <rect x="40" y="580" width="240" height="160" fill="#fce7f3" stroke="#334155" stroke-width="4"/>
-                  <text x="160" y="650" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#be185d" text-anchor="middle">LAU</text>
-                  <text x="160" y="680" font-family="Arial, sans-serif" font-size="14" fill="#9d174d" text-anchor="middle">LAUNDRY</text>
+                  <text x="160" y="650" font-family="Poppins, sans-serif" font-size="24" font-weight="bold" fill="#be185d" text-anchor="middle">LAU</text>
+                  <text x="160" y="680" font-family="Poppins, sans-serif" font-size="14" fill="#9d174d" text-anchor="middle">LAUNDRY</text>
                 </a>
 
                 <!-- GARAGE (GAR) -->
                 <a href="#modal-gar" title="Garage">
                   <rect x="40" y="740" width="340" height="220" fill="#e2e8f0" stroke="#334155" stroke-width="4"/>
-                  <text x="210" y="810" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#475569" text-anchor="middle">GAR</text>
-                  <text x="210" y="845" font-family="Arial, sans-serif" font-size="18" fill="#334155" text-anchor="middle">GARAGE</text>
+                  <text x="210" y="810" font-family="Poppins, sans-serif" font-size="28" font-weight="bold" fill="#475569" text-anchor="middle">GAR</text>
+                  <text x="210" y="845" font-family="Poppins, sans-serif" font-size="18" fill="#334155" text-anchor="middle">GARAGE</text>
                   <!-- Architectural Car Symbol -->
                   <g transform="translate(122, 865) scale(0.8)" stroke="#64748b" stroke-width="2.5" fill="none" stroke-linejoin="round">
                     <!-- Main Body -->
@@ -1403,8 +1421,8 @@
                 <!-- PATIO & OUTDOOR (PAT) -->
                 <a href="#modal-pat" title="Patio & Outdoor">
                   <rect x="380" y="620" width="380" height="340" fill="#ecfccb" stroke="#334155" stroke-width="4"/>
-                  <text x="570" y="780" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#4d7c0f" text-anchor="middle">PAT</text>
-                  <text x="570" y="815" font-family="Arial, sans-serif" font-size="18" fill="#3f6212" text-anchor="middle">PATIO &amp; OUTDOOR</text>
+                  <text x="570" y="780" font-family="Poppins, sans-serif" font-size="28" font-weight="bold" fill="#4d7c0f" text-anchor="middle">PAT</text>
+                  <text x="570" y="815" font-family="Poppins, sans-serif" font-size="18" fill="#3f6212" text-anchor="middle">PATIO &amp; OUTDOOR</text>
                 </a>
 
                 <!-- Outer Structural Walls -->
@@ -1535,12 +1553,11 @@
             </aside>
           </div>
         </div>
-      </section>
-
-      <!-- ═══════════════════════════════════════════
+            <!-- ═══════════════════════════════════════════
            MODALS — Pure CSS
       ═══════════════════════════════════════════ -->
-      <div class="modal" id="modal-bed">
+      <div class="modal-target-wrapper" id="modal-bed">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-bed">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1551,9 +1568,11 @@
           <p class="modal__desc">Shop premium mattresses, spacious wardrobes, ACs &amp; fans for maximum comfort.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeBedroom" class="modal__cta">Shop Bedroom</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-bath">
+      <div class="modal-target-wrapper" id="modal-bath">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-bath">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1564,9 +1583,11 @@
           <p class="modal__desc">Upgrade with efficient water heaters and elegant bathroom accessories.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeBathroom" class="modal__cta">Shop Bathroom</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-off">
+      <div class="modal-target-wrapper" id="modal-off">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-off">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1577,9 +1598,11 @@
           <p class="modal__desc">Work smartly with top-tier laptops, printers, and ergonomic office furniture.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeOffice" class="modal__cta">Shop Home Office</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-liv">
+      <div class="modal-target-wrapper" id="modal-liv">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-liv">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1590,9 +1613,11 @@
           <p class="modal__desc">Transform your living space with Smart TVs, soundbars, ACs, and comfortable sofas.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeLivingRoom" class="modal__cta">Shop Living Room</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-kit">
+      <div class="modal-target-wrapper" id="modal-kit">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-kit">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1603,9 +1628,11 @@
           <p class="modal__desc">Equip your kitchen with high-quality microwaves, cookers, and modern refrigerators.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeKitchen" class="modal__cta">Shop Kitchen</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-din">
+      <div class="modal-target-wrapper" id="modal-din">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-din">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1616,9 +1643,11 @@
           <p class="modal__desc">Host memorable dinners with beautiful dining sets and handy water dispensers.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeDining" class="modal__cta">Shop Dining Room</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-gar">
+      <div class="modal-target-wrapper" id="modal-gar">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-gar">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1629,9 +1658,11 @@
           <p class="modal__desc">Stay powered and organized with reliable generators, power tools, and storage units.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeGarage" class="modal__cta">Shop Garage</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-lau">
+      <div class="modal-target-wrapper" id="modal-lau">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-lau">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1642,9 +1673,11 @@
           <p class="modal__desc">Make laundry effortless with top-rated washing machines, dryers, and irons.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomeLaundry" class="modal__cta">Shop Laundry</a>
         </div>
+        </div>
       </div>
 
-      <div class="modal" id="modal-pat">
+      <div class="modal-target-wrapper" id="modal-pat">
+        <div class="modal">
         <a href="#floor-plan" class="modal__overlay" aria-label="Close modal"></a>
         <div class="modal__dialog" role="dialog" aria-labelledby="modal-title-pat">
           <a href="#floor-plan" class="modal__close" aria-label="Close">&times;</a>
@@ -1655,9 +1688,12 @@
           <p class="modal__desc">Enjoy the outdoors with stylish outdoor furniture, grills, and powerful inverters.</p>
           <a href="https://www.konga.com/search?search=FeelAtHomePatio" class="modal__cta">Shop Patio &amp; Outdoor</a>
         </div>
+        </div>
       </div>
 
 
+
+      </section>
 
       <!-- Flash Deals Section (5 Products per row at first glance) -->
       <section class="best-sellers-section section-reset" id="flash-deals">
@@ -1884,36 +1920,17 @@
         });
       }
 
-      // --- Custom Modal Logic to Prevent Page Jump ---
-      const modalLinks = document.querySelectorAll('a[href^="#modal-"]');
-      const modals = document.querySelectorAll('.modal');
-      const closeButtons = document.querySelectorAll('.modal__close');
-      const overlays = document.querySelectorAll('.modal__overlay');
-
-      // Open modals without jumping
-      modalLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
+      // --- Modal Close: clear hash without scrolling ---
+      document.querySelectorAll('.modal__close, .modal__overlay').forEach(el => {
+        el.addEventListener('click', (e) => {
           e.preventDefault();
-          const targetId = link.getAttribute('href').substring(1);
-          const targetModal = document.getElementById(targetId);
-          if (targetModal) {
-            targetModal.classList.add('active');
-          }
+          // Silently remove hash without scrolling
+          history.replaceState(null, '', window.location.pathname);
+          // Manually hide all modals since :target no longer applies
+          document.querySelectorAll('.modal-target-wrapper').forEach(w => {
+            w.querySelector('.modal').style.display = 'none';
+          });
         });
-      });
-
-      // Close modals without jumping
-      const closeModal = (e) => {
-        if (e) e.preventDefault();
-        modals.forEach(modal => modal.classList.remove('active'));
-      };
-
-      closeButtons.forEach(btn => {
-        btn.addEventListener('click', closeModal);
-      });
-
-      overlays.forEach(overlay => {
-        overlay.addEventListener('click', closeModal);
       });
     </script>
   </body>
